@@ -52,10 +52,13 @@
     <script src="http://www.chartjs.org/samples/latest/utils.js">
     </script>
 
+    <!-- zing chart -->
+    <script src='https://cdn.zingchart.com/zingchart.min.js'></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <link href="style.css" rel="stylesheet">
-    </style>
+    
 
 </head>
 
@@ -81,6 +84,9 @@
             <br>
             <br>
             <button type="button" id="listaArticulosInstitucion" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Mostrar listado de instituciones con su cantidad de publicaciones" style="z-index: 10">Artículos por institución</button>
+            <br>
+            <br>
+            <button type="button" id="mostrarColaboracionesHospitales" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Mostrar la colaboración entre PIs del INB y hospitales" style="z-index: 10">Colaboración con hospitales</button>
         </center>
     </div>
     <!-- map div -->
@@ -126,6 +132,27 @@
     </script>
 
     <div class="popup-container" id="institutionWindow">
+            <div id="myModalColHosp" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+        
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Colaboración entre hospitales y PIs del INB</h4>
+                            </div>
+                            <div class="modal-body">
+                                
+                                <div id="myChartColHosp">
+                                    
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
         <div id="myModalListado" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
 
@@ -273,6 +300,7 @@
 
         <script src="elixirmap.js">
         </script>
+        <script src="hospital_collaborations_chart.js"></script>
 
 </body>
 
