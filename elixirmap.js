@@ -276,66 +276,20 @@
 	            $("#moreInfoButton").click(function() {
 
 	                $('#myModalMoreInfo').appendTo("body").modal('show');
-	            });
+              });
+              
+              // Boton colaboraciones PIs
+	            $("#mostrarColaboracionesPIs").click(function() {
+				  $('#myChartPIsCol').html('');
+				  loadPIsCollaborationsChart();
+                  $('#myModalPIsCol').appendTo("body").modal('show');
+              });
 
 	            // Boton colaboraciones hospitales
 	            $("#mostrarColaboracionesHospitales").click(function() {
-
-	                var institutionsHash = {};
-
-	                SQL_CLIENT.request({
-	                        params: {
-	                            q: "select distinct(nameaffiliation), count(distinct(title)) from articles_spa_elixir_v1 where year IN (" + selectedYearsArray + ") group by nameaffiliation order by count(distinct(title)) desc"
-	                        },
-	                    })
-	                    .then(function(response) {
-	                        for (var z = 0; z < response.data.rows.length; z++) {
-	                            institutionsHash[response.data.rows[z].nameaffiliation] = {
-	                                "Sí": 0,
-	                                "No": 0
-	                            }
-	                        }
-	                        SQL_CLIENT.request({
-	                                params: {
-	                                    q: "select nameaffiliation, inb_grant, count(distinct(title)) from articles_spa_elixir_v1 where year IN (" + selectedYearsArray + ") group by nameaffiliation, inb_grant order by nameaffiliation ASC"
-	                                },
-	                            })
-	                            .then(function(response) {
-	                                if (response && response.data) {}
-	                                console.log(response.data);
-	                                console.log("hash");
-	                                console.log(institutionsHash);
-	                                $('#cuerpoTablaListaArticulosInstitucion').html('');
-	                                for (var z = 0; z < response.data.rows.length; z++) {
-	                                    //console.log(z);
-	                                    institutionsHash[response.data.rows[z].nameaffiliation][response.data.rows[z].inb_grant] = response.data.rows[z].count;
-
-	                                }
-
-	                                Object.keys(institutionsHash).forEach(function(key) {
-	                                    var value = institutionsHash[key]
-	                                    $('#cuerpoTablaListaArticulosInstitucion').append(
-	                                        '<tr>' +
-	                                        '<td>' + key + '</td>' +
-	                                        '<td>' + value["Sí"] + '</td>' +
-	                                        '<td>' + value["No"] + '</td>' +
-	                                        '<td>');
-	                                    // iteration code
-	                                })
-	                                $('#cuerpoTablaListaArticulosInstitucion').append(
-	                                    '</tr>');
-	                                $('#myModalColHosp').appendTo("body").modal('show');
-
-	                                console.log("hash2");
-	                                console.log(institutionsHash);
-
-	                            })
-	                            .catch(function(error) {
-	                                //console.log(error);
-	                            }).catch(function(error) {
-	                                //console.log(error);
-	                            });
-	                    });
+					$('#myChartColHosp').html('');
+					loadHospitalCollaborationsChart();
+	              $('#myModalColHosp').appendTo("body").modal('show');
 	            });
 
 	            // Boton lista articulos ins.

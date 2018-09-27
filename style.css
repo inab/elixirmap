@@ -265,3 +265,15 @@ top:5px;
 #myChartColHosp-license-text {
   display: none;
 }
+
+.myChartPIsCol-menu {
+  display: none;
+}
+
+.myChartPIsCol-menu-item {
+  display: none;
+}
+
+#myChartPIsCol-license-text {
+  display: none;
+}

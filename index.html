@@ -87,6 +87,9 @@
             <br>
             <br>
             <button type="button" id="mostrarColaboracionesHospitales" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Mostrar la colaboración entre PIs del INB y hospitales" style="z-index: 10">Colaboración con hospitales</button>
+            <br>
+            <br>
+            <button type="button" id="mostrarColaboracionesPIs" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Mostrar la colaboración entre PIs del INB" style="z-index: 10">Colaboración entre PIs</button>
         </center>
     </div>
     <!-- map div -->
@@ -132,6 +135,27 @@
     </script>
 
     <div class="popup-container" id="institutionWindow">
+            <div id="myModalPIsCol" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+        
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Colaboración entre PIs del INB</h4>
+                            </div>
+                            <div class="modal-body">
+                                
+                                <div id="myChartPIsCol">
+                                    
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
             <div id="myModalColHosp" class="modal fade" role="dialog">
                     <div class="modal-dialog modal-lg">
         
@@ -301,6 +325,7 @@
         <script src="elixirmap.js">
         </script>
         <script src="hospital_collaborations_chart.js"></script>
+        <script src="pis_collaborations_chart.js"></script>
 
 </body>
 
